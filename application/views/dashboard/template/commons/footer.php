@@ -73,6 +73,8 @@ function w3_close() {
 <!-- JS DASHBOARD -->
 <script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/user/main.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/imovel/main.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/imovel/cidade.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/imovel/bairro.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/site/main.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/dashboard/imovel/perfil-imovel.js');?>"></script>
 

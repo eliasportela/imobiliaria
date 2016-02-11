@@ -104,40 +104,6 @@ class ApiSite extends CI_Controller {
 
 	}
 
-	//CIDADES
-	//Cadastro de cidades
-	public function CadastrarCidade()
-	{
-		if($this->mycrud->Insert('cidade',$this->input->post())){
-			$this->output->set_status_header('200');
-		}else{
-			$this->output->set_status_header('400');
-		}
-	}
-	//editar cidades
-	public function EditarCidade()
-	{
-		if($this->mycrud->Update('cidade','id_cidade',$this->input->post())){
-			$this->output->set_status_header('200');
-		}else{
-			$this->output->set_status_header('400');
-		}	
-	}
-	//remover cidades
-	public function RemoverCidade()
-	{
-		if($this->mycrud->Remove('cidade','id_cidade',$this->input->post())){
-			$this->output->set_status_header('200');
-		}else{
-			$this->output->set_status_header('400');
-		}	
-	}
-	//listar cidades
-	public function Cidades()
-	{
-		if($this->mycrud->ReadAll('cidade')){
-			echo $this->mycrud->ReadAll('cidade');
-		}
-	}
+	
 
 }

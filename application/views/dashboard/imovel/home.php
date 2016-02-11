@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="w3-quarter">
-        <a href="#">
+        <a href="#" onclick="modalCidades()">
           <div class="w3-container w3-teal w3-padding-16 w3-center">
             <i class="fa fa-location-arrow w3-xxxlarge"></i>
             <div class="w3-clear"></div>
@@ -33,7 +33,7 @@
         </a>
       </div>
       <div class="w3-quarter">
-        <a href="#" style="">
+        <a href="#" onclick="modalBairros()">
           <div class="w3-container w3-orange w3-text-white w3-padding-16 w3-center">
             <i class="fa fa-map-marker w3-xxxlarge"></i>
             <div class="w3-clear"></div>
@@ -470,19 +470,91 @@
   </div>
 
   <!--Modal de cadastro de cidades -->
-  <div id="modalGaleriaImagem" class="w3-modal">
-    <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width:100%;">
-      <div class="w3-padding-16 w3-center">
-        <button class="w3-button w3-teal" id="btnSelImgImovel">Selecionar Imagens</button>
-      </div>
+  <div id="modalCadastroCidade" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width:100%">
       <div class="w3-container w3-margin-bottom">
-        <form class="dropzone" action="<?=base_url('admin/galeria-imovel')?>" style="display:" id="myAwesomeDropzone" enctype="multipart/form-data">
-          <input type="hidden" name="additionaldata" id="idImovelGaleria" value="0" />
-          <input type="hidden" name="referenciaImovel" id="idRefImovelGaleria" value="0" />
+        <form class="w3-padding-16 w3-margin" method="POST" action="" id="inserirCidade">
+          <div class="w3-row-padding">
+            <div class="w3-col m5">
+              <label class="">Estado</label>
+              <select class="w3-select w3-border" id="inputCadastroSiglaEstado">
+                <option value="SP">São Paulo</option>
+                <option value="MG">Minas Gerais</option>
+              </select>
+            </div>
+            <div class="w3-col m5">
+              <label>Nome da Cidade</label>
+              <input type="text" class="w3-input w3-border" id="inputCadastroNomeCidade">
+            </div>
+            <div class="w3-col m2">
+              <label style="visibility: hidden;">a</label>
+              <button type="input" class="w3-button w3-block w3-teal">Cadastrar</button>
+            </div>
+          </div>
         </form>
+        <div style="height: 45vh;overflow: auto;">
+          <form class="w3-padding-16 w3-margin" >
+            <table class="w3-table w3-bordered w3-centered">
+              <thead class="w3-teal">
+                <tr>
+                  <th style="width: 40%">Cidade</th>
+                  <th style="width: 30%">Estado</th>
+                  <th style="width: 30%">Editar / Remover</th>
+                </tr>
+              </thead>
+              <tbody id="listCidades"></tbody>
+            </table>
+          </form>
+        </div>
+
       </div>
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-        <button onclick="modalGaleria();$('#modalGaleriaImagem').css('display','none')" type="button" class="w3-button w3-block w3-gray">Voltar</button>
+        <button onclick="$('#modalCadastroCidade').css('display','none')" type="button" class="w3-button w3-block w3-gray">Voltar</button>
+      </div>
+    </div>
+  </div>
+
+   <!--Modal de cadastro de cidades -->
+  <div id="modalCadastroBairro" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width:100%">
+      <div class="w3-container w3-margin-bottom">
+        <form class="w3-padding-16 w3-margin" method="POST" action="" id="inserirBairro">
+          <div class="w3-row-padding">
+            <div class="w3-col m5">
+              <label class="">Cidade</label>
+              <select class="w3-select w3-border" id="inputCadastroBairroCidade">
+                <option value=""></option>
+              </select>
+            </div>
+            <div class="w3-col m5">
+              <label>Nome do Bairro</label>
+              <input type="text" class="w3-input w3-border" id="inputCadastroNomeBairoo">
+            </div>
+            <div class="w3-col m2">
+              <label style="visibility: hidden;">a</label>
+              <button type="input" class="w3-button w3-block w3-teal">Cadastrar</button>
+            </div>
+          </div>
+        </form>
+        <div style="height: 45vh;overflow: auto;">
+          <form class="w3-padding-16 w3-margin" >
+            <table class="w3-table w3-bordered w3-centered">
+              <thead class="w3-teal">
+                <tr>
+                  <th style="width: 25%">Bairro</th>
+                  <th style="width: 30%">Cidade</th>
+                  <th style="width: 20%">Estado</th>
+                  <th style="width: 25%">Editar / Remover</th>
+                </tr>
+              </thead>
+              <tbody id="listBairros"></tbody>
+            </table>
+          </form>
+        </div>
+
+      </div>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="$('#modalCadastroBairro').css('display','none')" type="button" class="w3-button w3-block w3-gray">Voltar</button>
       </div>
     </div>
   </div>

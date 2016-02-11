@@ -72,9 +72,10 @@ class Mycrud{
     
     }
 
-    public function ReadPar($table,$par)
+    public function ReadPar($table,$id,$dados)
     {
-      //die(var_dump($table));
+      
+      $par = array($id => $dados[$id]);
       $data = $this->CI->Crud_model->ReadPar($table,$par);
       
       if ($data) {
@@ -83,7 +84,21 @@ class Mycrud{
       }else{
         return false;
       }
+    
+    }
 
+    //query
+    public function Query($sql)
+    {
+      
+      $data = $this->CI->Crud_model->Query($sql);
+      
+      if ($data) {
+        $json = json_encode($data,JSON_UNESCAPED_UNICODE);
+        return $json;
+      }else{
+        return false;
+      }
     
     }
 

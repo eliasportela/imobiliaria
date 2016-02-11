@@ -42,16 +42,6 @@ $route['admin/imagem-perfil-imovel'] = 'Imovel/Recortar';
 $route['admin/detalhes-imovel'] = 'Imovel/RegisterDetalhes';
 $route['admin/galeria-imovel'] = 'Imovel/EnviarImagemGaleria';
 $route['admin/galeria-remove'] = 'Imovel/RemoveImagemGaleria';
-#Cidades
-$route['admin/cidade'] = 'Cidade';
-$route['admin/cadastro-cidades'] = 'Cidade/Register';
-$route['admin/editar-cidades'] = 'Cidade/Edit';
-$route['admin/remover-cidades'] = 'Cidade/Remove';
-#Bairros
-$route['admin/bairros'] = 'Bairro';
-$route['admin/cadastro-bairros'] = 'Bairro/Register';
-$route['admin/editar-bairros'] = 'Bairro/Edit';
-$route['admin/remover-bairros'] = 'Bairro/Remove';
 
 #Pedidos
 $route['admin/pedidos'] = 'Pedido';
@@ -64,10 +54,17 @@ $route['admin/finalizar-pedido'] = 'Pedido/FinalizarPedido';
 # API SITE
 $route['api/bairros'] = 'ApiSite/Bairros';
 
-$route['api/cidades'] = 'ApiSite/Cidades';
-$route['api/cadastrar-cidade'] = 'ApiSite/CadastrarCidade';
-$route['api/editar-cidade'] = 'ApiSite/EditarCidade';
-$route['api/remover-cidade'] = 'ApiSite/RemoverCidade';
+#Cidades
+$route['admin/cidades'] = 'Cidade/BuscarCidades';
+$route['admin/cadastrar-cidade'] = 'Cidade/CadastrarCidade';
+$route['admin/editar-cidade'] = 'Cidade/EditarCidade';
+$route['admin/remover-cidade'] = 'Cidade/RemoverCidade';
+
+#Bairros
+$route['admin/bairros'] = 'Bairro/BuscarBairros';
+$route['admin/cadastro-bairros'] = 'Bairro/CadastrarBairro';
+$route['admin/editar-bairros'] = 'Bairro/EditarBairro';
+$route['admin/remover-bairros'] = 'Bairro/RemoverBairro';
 
 $route['api/imovel'] = 'ApiSite/Imovel';
 $route['api/galeria-imovel'] = 'ApiSite/GaleriaImovel';

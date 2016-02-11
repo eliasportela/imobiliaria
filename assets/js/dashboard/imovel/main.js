@@ -407,8 +407,9 @@ function selectBairro(opcao){
 	}
 
 	//fazendo a requisicao
-	$.get(base_urla+'api/bairros?id='+cidade, function(res) { 
+	$.get(base_urla+'admin/bairros?id='+cidade, function(res) { 
        
+       	console.log(res);
        	data = JSON.parse(res);
      
        	data.forEach(function(obj){
