@@ -47,13 +47,18 @@ $route['admin/cidade'] = 'Cidade';
 $route['admin/cadastro-cidades'] = 'Cidade/Register';
 $route['admin/editar-cidades'] = 'Cidade/Edit';
 $route['admin/remover-cidades'] = 'Cidade/Remove';
-
 #Bairros
 $route['admin/bairros'] = 'Bairro';
 $route['admin/cadastro-bairros'] = 'Bairro/Register';
 $route['admin/editar-bairros'] = 'Bairro/Edit';
 $route['admin/remover-bairros'] = 'Bairro/Remove';
 
+#Pedidos
+$route['admin/pedidos'] = 'Pedido';
+$route['admin/enviar-pedido'] = 'Pedido/EnviarPedido';
+$route['admin/buscar-pedido'] = 'Pedido/BuscarPedido';
+$route['admin/notificacao-pedido'] = 'Pedido/NotificacaoPedido';
+$route['admin/visualizacao-pedido'] = 'Pedido/VisualizacaoPedido';
 
 # API SITE
 $route['api/bairros'] = 'ApiSite/Bairros';

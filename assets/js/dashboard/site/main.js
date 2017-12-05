@@ -1,11 +1,7 @@
-var base_url = "http://127.0.0.1/imobiliaria/";
-
 function editarConteudoSite(id) {
 	$('#modalEditarConteudo').css('display','block');
 	selectConteudo(id);
 }
-
-
 
 function selectConteudo(id){
 
@@ -20,7 +16,7 @@ function selectConteudo(id){
 	var data = [];
 	
 	//fazendo a requisicao
-	$.get(base_url + 'api/conteudo-site?id='+id, function(res) { 
+	$.get(base_urla + 'api/conteudo-site?id='+id, function(res) { 
        
        	data = JSON.parse(res);
      

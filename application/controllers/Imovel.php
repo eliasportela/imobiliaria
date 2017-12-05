@@ -19,40 +19,23 @@ class Imovel extends CI_Controller {
 		$data['finalidadeImoveis'] = $this->Crud_model->ReadAll('finalidade_imovel');
 		#tipo Imoveis
 		$data['tipoImoveis'] = $this->Crud_model->ReadAll('tipo_imovel');
-		#cidades
+		//cidades
 		$data['cidades'] = $this->Crud_model->ReadAll('cidade');
-		#bairros
-		$data['bairros'] = $this->Crud_model->ReadAll('bairro');
 		#logradouros
 		$data['logradouros'] = $this->Crud_model->ReadAll('logradouro');
-		#imoveis to 10 news"
-		$sql = "SELECT i.id_imovel, i.referencia_imovel, i.img_imovel, t.ds_tipo, f.ds_fi, b.nome_bairro, c.nome_cidade
-			from imovel i
-			JOIN tipo_imovel t ON (t.id_tipo = i.id_tipo_imovel)
-			JOIN finalidade_imovel f ON (f.id_fi = i.id_finalidade)
-			JOIN endereco_imovel e ON (e.id_endereco_imovel = i.id_endereco_imovel)
-			JOIN bairro b ON (b.id_bairro = e.id_bairro)
-			JOIN cidade c ON (c.id_cidade = b.id_cidade)
-			ORDER by i.id_imovel
-			LIMIT 10";
-		
-		$data['imoveis'] = $this->Crud_model->Query($sql);
-		
-		$sql = "SELECT count(*) as qtdImoveis from imovel";
-		$data['qtdImoveis'] = $this->Crud_model->Query($sql);
 		#Indices de pesquisas
-		$data['cidadePesquisa'] = 0;
 		$data['tipoPesquisa'] = 0;
 		$data['finalidadePesquisa'] = 0;
 		$data['referenciaPesquisa'] = '';
-
-		//die(var_dump($data['users']));
-		$header['title'] = "Dash | Imóveis";
-		$menu['id_page'] = 3;
+		$data['cidadePesquisa'] = 0;
+		$data['imoveis'] = FALSE;
+		$data['qtdImoveis'] = FALSE;
+		$data['pesquisa'] = FALSE;
 
 		// se esta usando o campo pesquisa
 		if (($this->input->get("cidade")) and ($this->input->get("tipo")) and ($this->input->get("finalidade"))) {
 			
+			$data['pesquisa'] = TRUE;
 			$cidade = $this->input->get("cidade");
 			$tipo = $this->input->get("tipo");
 			$finalidade = $this->input->get("finalidade");
@@ -105,7 +88,8 @@ class Imovel extends CI_Controller {
 			}
 
 			$data['imoveis'] = $this->Crud_model->Query($sql);
-			$data['qtdImoveis'] = $this->Crud_model->Query($sql2);
+			$qtdImoveis = $this->Crud_model->Query($sql2);
+			$data['qtdImoveis'] = $qtdImoveis[0]->qtdImoveis; 
 			#indices da pesquisa
 			$data['cidadePesquisa'] = $cidade;
 			$data['tipoPesquisa'] = $tipo;
@@ -114,6 +98,8 @@ class Imovel extends CI_Controller {
 
 		}
 
+		$header['title'] = "Dash | Imóveis";
+		$menu['id_page'] = 3;
 
 		$this->load->view('dashboard/template/commons/header',$header);
 		$this->load->view('dashboard/template/commons/menu',$menu);

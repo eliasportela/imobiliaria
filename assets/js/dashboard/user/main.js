@@ -1,5 +1,3 @@
-var base_url = "http://127.0.0.1/imobiliaria/";
-
 jQuery(document).ready(function(){
 		
 	jQuery('#inserir').submit(function(){
@@ -11,7 +9,7 @@ jQuery(document).ready(function(){
 					'tipo_user' : $("#permissao").val()
 				};
 		
-		pageurl = base_url + 'admin/cadastro-usuario';
+		pageurl = base_urla + 'admin/cadastro-usuario';
 			
 			jQuery.ajax({
 				type: "POST",
@@ -62,7 +60,7 @@ jQuery(document).ready(function(){
 			'id_tipo_usuario' : $("#editarPermissao").val()
 		};
 		
-		pageurl = base_url + 'admin/editar-usuario';
+		pageurl = base_urla + 'admin/editar-usuario';
 			
 			jQuery.ajax({
 				type: "POST",
@@ -119,7 +117,7 @@ function deletarItem() {
 			'id' : $("#idUser").val()
 		};
 		
-		pageurl = base_url + 'admin/remover-usuario';
+		pageurl = base_urla + 'admin/remover-usuario';
 			
 			jQuery.ajax({
 				type: "GET",

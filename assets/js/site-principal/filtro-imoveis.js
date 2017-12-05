@@ -1,10 +1,8 @@
-var base_url = "http://127.0.0.1/imobiliaria/";
+var base_url = "http://127.0.0.1/edsa-imobiliaria/";
 
 jQuery(document).ready(function(){
-
 	selectBairro();
 	selectPreco();
-
 });
 
 

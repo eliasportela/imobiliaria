@@ -1,5 +1,4 @@
 <input type="hidden" id="fuiAlterado" value="0">
-
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
   <!-- Header -->
@@ -57,7 +56,7 @@
                   <?php endforeach; ?>
                 </select>  
               </div>
-              <div class="w3-col l2">
+              <div class="w3-col l3">
                 <label class="w3-margin-top"><b>Imóvel</b></label>
                 <select class="w3-select w3-border" name="tipo" required>
                   <?php foreach ($tipoImoveis as $tipoImovel): ?>
@@ -77,9 +76,9 @@
                 <label class="w3-margin-top"><b>Referência</b></label>
                 <input class="w3-input" type="text" placeholder="Referência" name="ref" value="<?=$referenciaPesquisa?>">
               </div>
-              <div class="w3-col l3">
+              <div class="w3-col l2">
                 <label class="w3-margin-top"><b>Pesquisar</b></label>
-                <button class="w3-button w3-block w3-teal" id="inserir_cidade"><i class="fa fa-search"></i></button>
+                <button class="w3-button w3-teal w3-block" id="inserir_cidade"><i class="fa fa-search"></i> Pesquisar</button>
               </div>
             </div>
           </form>
@@ -89,6 +88,9 @@
         <div class="w3-responsive w3-card">
           <div class="w3-white">
             <table class="w3-table w3-hoverable w3-bordered w3-centered">
+            <?php
+            if($pesquisa == false): ?>
+            <?php else: ?>  
               <tr class="w3-teal">
                 <th>Foto</th>
                 <th>Referencia</th>
@@ -98,20 +100,24 @@
                 <th>Bairro</th>
               </tr>
             <?php 
-            if($qtdImoveis[0]->qtdImoveis == 0): ?>
-            <?php else:
+            if ($imoveis):
             foreach ($imoveis as $imovel): ?>
-            <tr onclick="editarImovel('<?=$imovel->id_imovel?>')" style="cursor: pointer;">
-              <td><img src="<?=base_url('assets/img/imoveis/'.$imovel->img_imovel)?>" style="max-width: 100px;max-height: 100px;"></td>  
-              <td style="vertical-align: middle;"><?=$imovel->referencia_imovel?></td>
-              <td style="vertical-align: middle;"><?=$imovel->ds_tipo?></td>
-              <td style="vertical-align: middle;"><?=$imovel->ds_fi?></td>
-              <td style="vertical-align: middle;"><?=$imovel->nome_cidade?></td>
-              <td style="vertical-align: middle;"><?=$imovel->nome_bairro?></td>
-            </tr>
-            <?php endforeach; endif; ?>
+              <tr onclick="editarImovel('<?=$imovel->id_imovel?>')" style="cursor: pointer;">
+                <td><img src="<?=base_url('assets/img/imoveis/'.$imovel->img_imovel)?>" style="max-width: 100px;max-height: 100px;"></td>  
+                <td style="vertical-align: middle;"><?=$imovel->referencia_imovel?></td>
+                <td style="vertical-align: middle;"><?=$imovel->ds_tipo?></td>
+                <td style="vertical-align: middle;"><?=$imovel->ds_fi?></td>
+                <td style="vertical-align: middle;"><?=$imovel->nome_cidade?></td>
+                <td style="vertical-align: middle;"><?=$imovel->nome_bairro?></td>
+              </tr>
+            <?php endforeach; endif; endif; ?>
             </table>
-            <p class="w3-right w3-padding">Imóveis encontrados: <?=$qtdImoveis[0]->qtdImoveis;?></p>
+            <?php if ($qtdImoveis == false): ?>
+              <p class="w3-center w3-padding-16 w3-white w3-opacity">Nenhum imóvel encontrado</p>
+            <?php endif ?>         
+            <?php if ($qtdImoveis): ?>
+              <p class="w3-right w3-padding">Imóveis encontrados: <?=$qtdImoveis;?></p>  
+            <?php endif ?>         
           </div>
         </div>
 
@@ -461,4 +467,4 @@
         <button onclick="modalGaleria();$('#modalGaleriaImagem').css('display','none')" type="button" class="w3-button w3-block w3-gray">Voltar</button>
       </div>
     </div>
-  </div>  
+  </div>

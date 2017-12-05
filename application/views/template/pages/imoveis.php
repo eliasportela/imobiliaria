@@ -132,5 +132,5 @@
 </div>
 
 
-  
-<script src="<?=base_url('assets/js/page/main.js')?>"></script>
+<!--Script da pagina-->
+<script src="<?=base_url('assets/js/site-principal/filtro-imoveis.js')?>"></script>

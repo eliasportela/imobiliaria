@@ -1,4 +1,3 @@
-var base_url = "http://127.0.0.1/imobiliaria/";
 var idGaleriaImovel = 0;
 
 jQuery(document).ready(function(){
@@ -24,7 +23,7 @@ jQuery(document).ready(function(){
 
 		console.log(dadosajax);
 		
-		pageurl = base_url + 'admin/cadastro-imovel';
+		pageurl = base_urla + 'admin/cadastro-imovel';
 			
 			jQuery.ajax({
 				type: "POST",
@@ -73,7 +72,7 @@ jQuery(document).ready(function(){
 	jQuery('#edicaoImgImovel').submit(function(){
 			
 		var dadosImagemImovel = new FormData(this);
-		pageurl = base_url + 'admin/imagem-perfil-imovel';
+		pageurl = base_urla + 'admin/imagem-perfil-imovel';
 
 		if (parseInt($('#wcrop').val())) { // verificca se foi selecionado uma area de corte
 			request('Enviando a Imagem!');
@@ -123,7 +122,7 @@ jQuery(document).ready(function(){
 		//alteradno a id do imovel a ser editado
 		$("#idImovelDetalhes").val($("#idImovel").val());
 		var dadosDetalhesImovel = new FormData(this);
-		pageurl = base_url + 'admin/detalhes-imovel';
+		pageurl = base_urla + 'admin/detalhes-imovel';
 
 		$.ajax({
 		    url: pageurl,
@@ -165,7 +164,7 @@ jQuery(document).ready(function(){
 		//alteradno a id do imovel a ser editado
 		//$("#idImovelGaleria").val($("#idImovel").val());
 		var dadosGaleriaImovel = new FormData(this);
-		pageurl = base_url + 'admin/galeria-imovel';
+		pageurl = base_urla+ 'admin/galeria-imovel';
 
 		$.ajax({
 		    url: pageurl,
@@ -223,7 +222,7 @@ jQuery(document).ready(function(){
 
 		console.log(dadosajaxeditar);
 		
-		pageurl = base_url + 'admin/editar-imovel';
+		pageurl = base_urla+ 'admin/editar-imovel';
 			
 			jQuery.ajax({
 				type: "POST",
@@ -285,7 +284,7 @@ function deletarImovel() {
 			'id' : $("#idImovel").val()
 		};
 		
-		pageurl = base_url + 'admin/remover-imovel';
+		pageurl = base_urla+ 'admin/remover-imovel';
 			
 			jQuery.ajax({
 				type: "GET",
@@ -332,7 +331,7 @@ function deletarImagemGaleria(idImg) {
 			'id' : idImg
 		};
 		
-		pageurl = base_url + 'admin/galeria-remove';
+		pageurl = base_urla+ 'admin/galeria-remove';
 			
 			jQuery.ajax({
 				type: "GET",
@@ -408,7 +407,7 @@ function selectBairro(opcao){
 	}
 
 	//fazendo a requisicao
-	$.get('http://127.0.0.1/imobiliaria/api/bairros?id='+cidade, function(res) { 
+	$.get(base_urla+'api/bairros?id='+cidade, function(res) { 
        
        	data = JSON.parse(res);
      
@@ -436,11 +435,11 @@ function buscarImovelId(id){
 
 	var selector = '';//$('#bairroImovel');
 	//fazendo a requisicao
-	$.get(base_url + 'api/imovel?id='+imovel, function(res) { 
+	$.get(base_urla + 'api/imovel?id='+imovel, function(res) { 
        
 		data = JSON.parse(res);
        	//passando os valores
-       	$('#imgImovelEditar').attr('src', base_url + 'assets/img/imoveis/' + data[0].img_imovel);
+       	$('#imgImovelEditar').attr('src', base_urla + 'assets/img/imoveis/' + data[0].img_imovel);
        	$('#idImovel').val(data[0].id_imovel);
        	$('#refImovel').val(data[0].referencia_imovel);
        	$('#idEnderecoImovel').val(data[0].id_endereco_imovel);
@@ -534,7 +533,7 @@ function buscarGaleriaImagens(){
 	var ref = '';
 	//fazendo a requisicao
 	
-	$.get(base_url + 'api/galeria-imovel?id='+imovel, function(res) { 
+	$.get(base_urla + 'api/galeria-imovel?id='+imovel, function(res) { 
        
 		if (res) {
 
@@ -542,7 +541,7 @@ function buscarGaleriaImagens(){
 			$( ".imgGaleriaOutput" ).empty();
 			ref = $('#refImovel').val();
 			$.each(data, function(i, item) {
-	    		img = base_url + 'assets/img/imoveis/galeria/' + ref + '/' + data[i].name_file;
+	    		img = base_urla + 'assets/img/imoveis/galeria/' + ref + '/' + data[i].name_file;
 	    		idImg = data[i].id_img;
 	    		$( ".imgGaleriaOutput" ).append( '<div class="w3-quarter w3-padding"><div class="w3-card-2 w3-gray" style="height:140px;max-width:100%"><button class="w3-button w3-red w3-block" onclick="deletarImagemGaleria('+idImg+')"><i class="fa fa-trash-o"></i></button><img class="w3-image" style="max-width:100%;max-height:100px;margin:auto;" src='+img+'></div></div>');
 			})
