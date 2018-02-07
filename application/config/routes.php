@@ -62,7 +62,12 @@ $route['admin/visualizacao-pedido'] = 'Pedido/VisualizacaoPedido';
 
 # API SITE
 $route['api/bairros'] = 'ApiSite/Bairros';
+
 $route['api/cidades'] = 'ApiSite/Cidades';
+$route['api/cadastrar-cidade'] = 'ApiSite/CadastrarCidade';
+$route['api/editar-cidade'] = 'ApiSite/EditarCidade';
+$route['api/remover-cidade'] = 'ApiSite/RemoverCidade';
+
 $route['api/imovel'] = 'ApiSite/Imovel';
 $route['api/galeria-imovel'] = 'ApiSite/GaleriaImovel';
 $route['api/conteudo-site'] = 'ApiSite/ConteudoSite';

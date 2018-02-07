@@ -3,33 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ApiSite extends CI_Controller {
 	
-	public function Cidades()
-	{
-		$data = $this->Crud_model->ReadAll('cidade');
-		if ($data) {
-			$json = json_encode($data,JSON_UNESCAPED_UNICODE);
-			echo $json;
-		}else{
-			echo "";
-		}
-
-	}
+	function __construct(){
+		parent::__construct();
+		$this->load->library(['mycrud']);
+	} 
 
 	public function Bairros()
 	{
 
 		if ($this->input->get("id")){
-			$cidade = $this->input->get("id");	
+			$dataModel = array('id_cidade' => $this->input->get("id"));
 
-			$dataModel = array('id_cidade' => $cidade);
-
-			$data = $this->Crud_model->ReadPar('bairro',$dataModel);
-			
-			if ($data) {
-				$json = json_encode($data,JSON_UNESCAPED_UNICODE);
-				echo $json;
-			}else{
-				echo "";
+			$res = $this->mycrud->ReadPar('bairro',$dataModel);
+			if ($res) {
+				echo $this->mycrud->ReadPar('bairro',$dataModel);
 			}
 
 		}else{
@@ -116,4 +103,41 @@ class ApiSite extends CI_Controller {
 		}
 
 	}
+
+	//CIDADES
+	//Cadastro de cidades
+	public function CadastrarCidade()
+	{
+		if($this->mycrud->Insert('cidade',$this->input->post())){
+			$this->output->set_status_header('200');
+		}else{
+			$this->output->set_status_header('400');
+		}
+	}
+	//editar cidades
+	public function EditarCidade()
+	{
+		if($this->mycrud->Update('cidade','id_cidade',$this->input->post())){
+			$this->output->set_status_header('200');
+		}else{
+			$this->output->set_status_header('400');
+		}	
+	}
+	//remover cidades
+	public function RemoverCidade()
+	{
+		if($this->mycrud->Remove('cidade','id_cidade',$this->input->post())){
+			$this->output->set_status_header('200');
+		}else{
+			$this->output->set_status_header('400');
+		}	
+	}
+	//listar cidades
+	public function Cidades()
+	{
+		if($this->mycrud->ReadAll('cidade')){
+			echo $this->mycrud->ReadAll('cidade');
+		}
+	}
+
 }

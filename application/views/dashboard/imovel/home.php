@@ -158,7 +158,7 @@
               <input class="w3-input" type="text" placeholder="Insira o CEP"  id="cepImovel"  pattern="(?=.*\d).{8}" title="O CEP deverá conter 8 números" required="">
             </div>
             <div class="w3-col l3">
-              <label class="w3-margin-top"><b>Cidade</b></label>
+              <label class="w3-margin-top"><b>Cidade</b><i class="fa fa-plus-circle" title="Cadastrar Cidade"></i></label>
               <select class="w3-select w3-border"  id="cidadeImovel" onchange="selectBairro(1)" required>
                 <?php foreach ($cidades as $cidade): ?>
                 <option value="<?=$cidade->id_cidade?>"><?=$cidade->nome_cidade?></option>
@@ -259,7 +259,7 @@
                   <input class="w3-input" type="text" placeholder="Insira o CEP"  id="cepImovelEditar"  pattern="(?=.*\d).{8}" title="O CEP deverá conter 8 números" required="">
                 </div>
                 <div class="w3-col l3">
-                  <label class="w3-margin-top"><b>Cidade</b></label>
+                  <label class="w3-margin-top"><b>Cidade</b> <i class="fa fa-plus-circle" title="Cadastrar Bairro"></i></label>
                   <select class="w3-select w3-border"  id="cidadeImovelEditar" onchange="selectBairro()" required>
                     <?php foreach ($cidades as $cidade): ?>
                     <option value="<?=$cidade->id_cidade?>"><?=$cidade->nome_cidade?></option>
@@ -468,3 +468,22 @@
       </div>
     </div>
   </div>
+
+  <!--Modal de cadastro de cidades -->
+  <div id="modalGaleriaImagem" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width:100%;">
+      <div class="w3-padding-16 w3-center">
+        <button class="w3-button w3-teal" id="btnSelImgImovel">Selecionar Imagens</button>
+      </div>
+      <div class="w3-container w3-margin-bottom">
+        <form class="dropzone" action="<?=base_url('admin/galeria-imovel')?>" style="display:" id="myAwesomeDropzone" enctype="multipart/form-data">
+          <input type="hidden" name="additionaldata" id="idImovelGaleria" value="0" />
+          <input type="hidden" name="referenciaImovel" id="idRefImovelGaleria" value="0" />
+        </form>
+      </div>
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button onclick="modalGaleria();$('#modalGaleriaImagem').css('display','none')" type="button" class="w3-button w3-block w3-gray">Voltar</button>
+      </div>
+    </div>
+  </div>
+
