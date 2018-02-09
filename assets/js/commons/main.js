@@ -20,3 +20,7 @@ function request(ds){
 function requestSuccess(){
 	$('#request').css("display","none");
 }
+function alertError(ds) {
+    $('#alertError').css("display","block");
+    $('#descricaoAlertError').html(ds);   
+}

@@ -59,6 +59,7 @@ $route['admin/enviar-pedido'] = 'Pedido/EnviarPedido';
 $route['admin/buscar-pedido'] = 'Pedido/BuscarPedido';
 $route['admin/notificacao-pedido'] = 'Pedido/NotificacaoPedido';
 $route['admin/visualizacao-pedido'] = 'Pedido/VisualizacaoPedido';
+$route['admin/finalizar-pedido'] = 'Pedido/FinalizarPedido';
 
 # API SITE
 $route['api/bairros'] = 'ApiSite/Bairros';

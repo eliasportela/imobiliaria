@@ -1,5 +1,3 @@
-var base_url = "http://127.0.0.1/edsa-imobiliaria/";
-
 jQuery(document).ready(function(){
 
 	jQuery('#enviarContato').submit(function(){
@@ -7,7 +5,7 @@ jQuery(document).ready(function(){
 		request('Enviando os dados!');
 		//alteradno a id do imovel a ser editado
 		var dadosContato = new FormData(this);
-		pageurl = base_url + 'admin/enviar-pedido';
+		pageurl = base_urla + 'admin/enviar-pedido';
 
 		$.ajax({
 		    url: pageurl,

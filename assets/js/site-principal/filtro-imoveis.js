@@ -1,5 +1,3 @@
-var base_url = "http://127.0.0.1/edsa-imobiliaria/";
-
 jQuery(document).ready(function(){
 	selectBairro();
 	selectPreco();
@@ -15,7 +13,7 @@ function selectBairro(){
 	$('#bairroImovel').empty();
 	$('#bairroImovel').prop("disabled", true);
 	//fazendo a requisicao
-	$.get(base_url + 'api/bairros?id=' + cidade, function(res) { 
+	$.get(base_urla + 'api/bairros?id=' + cidade, function(res) { 
        
        	data = JSON.parse(res);
      	selector.append( '<option value="0">Selecione</option>' );

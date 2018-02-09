@@ -1,10 +1,13 @@
 <!-- Modal de Requests -->
+  <style type="text/css">
+      @media (min-width: 600px){
+        .modal-request{
+          width: 35%;
+        }
+      }
+  </style>
   <div id="request" class="w3-modal" style="padding-top: 35vh;">
-    <div class="w3-modal-content w3-card-4" style="max-width:25%;@media (max-width: 600px)w3s.css:86
-.w3-modal-content {
-    margin: 0 10px;
-    max-width: 95% !important;
-}">
+    <div class="w3-modal-content w3-card-4 modal-request">
       <div class="w3-container">
         <div class="w3-row-padding w3-center" id="botaoSelecionarImagemImovel">
           <div style="background-color: #fff; max-width: 100%; max-height:150px">
@@ -18,7 +21,22 @@
       </div>
     </div>
   </div>
-  
+  <!-- Modal de Erros -->
+  <div id="alertError" class="w3-modal" style="padding-top: 35vh;">
+    <div class="w3-modal-content w3-card-4 modal-request">
+      <div class="w3-container">
+        <div class="w3-row-padding w3-center" id="botaoSelecionarImagemImovel">
+          <div style="background-color: #fff; max-width: 100%; max-height:150px">
+            <p><i class="fa fa-exclamation-circle" style="font-size:64px"></i></p>
+            <p><span id="descricaoAlertError">.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="w3-container w3-padding-16">
+        <button onclick="location.reload()" type="button" class="w3-button w3-block w3-red">Ok</button>
+      </div>
+    </div>
+  </div>
   <!-- End page content -->
 
 <script>
@@ -49,7 +67,6 @@ function w3_close() {
 <script type="text/javascript" src="<?php echo base_url('assets/vendor/dropzone.min.js');?>"></script>
 
 <!-- JS GERAL -->
-<script type="text/javascript" src="<?php echo base_url('assets/js/commons/config.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/commons/main.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/vendor/sweetalert-master/dist/sweetalert.min.js');?>"></script>
 

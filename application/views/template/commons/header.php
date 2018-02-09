@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/vendor/sweetalert-master/dist/sweetalert.css');?>">
 
 <script src="<?=base_url('assets/vendor/jquery/jquery.min.js')?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/commons/config.js');?>"></script>
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 .mySlides {display:none};

@@ -81,6 +81,8 @@
         <hr>
         <div class="w3-row-padding">
           <div class="w3-col l9">
+            <input type="hidden" id="idContatoImovel">
+            <input type="hidden" id="contatoFinalizado">
             <h6><b>De:</b> <span id="nomeContato"></span></h6>
             <h6><b>E-mail:</b> <span id="emailContato"></span></h6>
             <h6><b>Assunto:</b> <span id="assuntoContato"></span></h6>
@@ -102,7 +104,8 @@
       </div><br>        
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button onclick="location.reload();" type="button" class="w3-button w3-gray w3-left">Fechar</button>
-        <button onclick="$('#modalConteudoPedido').css('display','none')" type="button" class="w3-button w3-teal w3-right">Finalizar Contato</button>
+        <a href="#" onclick="contatoFinalizar(2)" id="btnReabrir" type="button" class="w3-button w3-teal w3-right">Reabrir Contato</a>
+        <a href="#" onclick="contatoFinalizar(1)" id="btnFinalizar" type="button" class="w3-button w3-teal w3-right">Finalizar Contato</a>
       </div>
     </div>
   </div>

@@ -1,1 +1,1 @@
-var base_urla = "http://127.0.0.1/edsa-imobiliaria/";
+var base_urla = "http://localhost/imobiliaria/";

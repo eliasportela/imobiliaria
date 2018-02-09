@@ -2,6 +2,7 @@
 <html>
 <title><?php echo $title ?></title>
 <meta charset="UTF-8">
+<link rel="icon" href="<?=base_url('assets/img/thumb.png')?>" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<?php echo base_url('assets/css/w3s.css');?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,6 +19,8 @@
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 <script type="text/javascript" src="<?php echo base_url('assets/vendor/jquery/jquery.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/commons/config.js');?>"></script>
+
 <body class="w3-light-grey">
 
 <div class="w3-bar w3-top w3-teal w3-large" style="z-index:4">
