@@ -531,7 +531,7 @@
               <input type="text" class="w3-input w3-border" id="inputCadastroNomeBairoo">
             </div>
             <div class="w3-col m2">
-              <label style="visibility: hidden;">a</label>
+              <label style="visibility: hidden;">ava</label>
               <button type="input" class="w3-button w3-block w3-teal">Cadastrar</button>
             </div>
           </div>
