@@ -522,9 +522,7 @@
           <div class="w3-row-padding">
             <div class="w3-col m5">
               <label class="">Cidade</label>
-              <select class="w3-select w3-border" id="inputCadastroBairroCidade">
-                <option value=""></option>
-              </select>
+              <select class="w3-select w3-border" id="tagSelectCidadeCadastrarBairro"></select>
             </div>
             <div class="w3-col m5">
               <label>Nome do Bairro</label>
@@ -542,7 +540,11 @@
               <thead class="w3-teal">
                 <tr>
                   <th style="width: 25%">Bairro</th>
-                  <th style="width: 30%">Cidade</th>
+                  <th style="width: 30%">
+                    <select class="w3-select w3-border w3-teal" style="text-align-last:center;" onchange="changeSelectCidades()" id="tagSelectCidadesFiltro">
+                      <option value="">Filtrar cidade</option>
+                    </select>
+                  </th>
                   <th style="width: 20%">Estado</th>
                   <th style="width: 25%">Editar / Remover</th>
                 </tr>

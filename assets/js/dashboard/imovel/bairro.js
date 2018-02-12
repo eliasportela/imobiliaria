@@ -28,17 +28,23 @@ jQuery(document).ready(function(){
 var dataBairro = [];
 //variaveis
 function modalBairros() {
-	
+
+	selectCidades('tagSelectCidadeCadastrarBairro');
+	selectCidades('tagSelectCidadesFiltro');
 	$('#modalCadastroBairro').css('display','block');
 	buscarBairros();
 
 }
 
-function buscarBairros() {
+function buscarBairros(p) {
 
 	$('#listBairros').empty();
 
-	pageurl = base_urla + 'admin/bairros';
+	if (p != undefined) {
+		pageurl = base_urla + 'admin/bairros?id=' + p;
+	}else{
+		pageurl = base_urla + 'admin/bairros';
+	}
 	$.get(pageurl, function(res) {
 
 		if (res != '') {
@@ -122,4 +128,11 @@ function removerBairro(id) {
 		});
 
 	});
+}
+
+
+//funcao q filtra os bairros por cidade quando muda o select
+function changeSelectCidades() {
+	id = $('#tagSelectCidadesFiltro').val();
+	buscarBairros(id);
 }

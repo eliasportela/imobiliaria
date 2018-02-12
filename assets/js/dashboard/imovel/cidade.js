@@ -122,3 +122,34 @@ function removerCidade(id) {
 
 	});
 }
+
+function selectCidades(p){
+
+	$('#listCidades').empty();
+	var selector = $('#'+p);
+
+	pageurl = base_urla + 'admin/cidades';
+	$.get(pageurl, function(res) {
+
+		if (res != '') {
+
+			dataCidade = JSON.parse(res);
+			
+			dataCidade.forEach(function(obj){
+
+		       var option = $('<option>');
+			   // set its value
+			   option.val(obj.id_cidade);
+			   // set its text
+			   option.text(obj.nome_cidade);
+			   // append it to select element
+			   selector.append(option);
+
+    		});
+
+    	} //fim do if
+	})
+	.done(function(){
+    	
+    });
+}
